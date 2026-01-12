@@ -1,201 +1,108 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Anime Directory — English / Hindi</title>
-<link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <title>Nothing Here</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            color: white;
+        }
+
+        .container {
+            text-align: center;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        h1 {
+            font-size: 5rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px rgba(255,255,255,0.4);
+        }
+
+        h1 span {
+            color: #ff4d6d;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 1.8rem;
+            opacity: 0.9;
+        }
+
+        .emoji {
+            font-size: 4rem;
+            margin-top: 30px;
+            animation: pulse 1.5s infinite;
+        }
+
+        .glow {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: #ff4d6d;
+            filter: blur(150px);
+            opacity: 0.4;
+            animation: moveGlow 8s linear infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.15);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes moveGlow {
+            0% {
+                transform: translate(-200px, -200px);
+            }
+            50% {
+                transform: translate(200px, 200px);
+            }
+            100% {
+                transform: translate(-200px, -200px);
+            }
+        }
+    </style>
 </head>
 <body>
-<header class="site-header">
-  <div class="header-inner">
-    <h1>Anime Directory — English / Hindi</h1>
-    <p class="subtitle">A long, scrollable directory of anime sites — filtered by language (Hindi / English). Search by name, tags or notes.</p>
-    <div class="controls">
-      <div class="lang">
-        <label><input type="checkbox" id="chkEnglish" checked> English</label>
-        <label><input type="checkbox" id="chkHindi"> Hindi</label>
-      </div>
-      <div class="search">
-        <input id="siteSearch" placeholder="Search name, tags or notes..." />
-        <button id="clearSearch" title="Clear">✕</button>
-      </div>
+
+    <div class="glow"></div>
+
+    <div class="container">
+        <h1>Go <span>🚫</span></h1>
+        <p>Nothing is left here</p>
+        <div class="emoji">😶‍🌫️🚪✨</div>
     </div>
-  </div>
-</header>
 
-<main class="page">
-  <section id="english-section" class="big-section">
-    <div class="section-inner">
-      <h2>English Anime Websites</h2>
-      <p class="section-note">English section shows English sites — and when English is selected it also includes the Hindi sites (they appear grouped here).</p>
-      <div id="english-cards" class="cards-grid"></div>
-      <div class="long-text">
-        <h3>About this list</h3>
-        <p>Scroll down for more sections. Each card includes an icon, a note and quick actions. Cards are animated on hover and filtering is instant.</p>
-        <p>Large spacing and neon glow styling gives a modern directory look — perfect for archival and fan communities. Keep scrolling to see the Hindi section and special GOAT / contact blocks below.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="hindi-section" class="big-section">
-    <div class="section-inner">
-      <h2>Hindi Anime Websites</h2>
-      <p class="section-note">This section shows only Hindi sites (when Hindi is selected it becomes the only visible site list).</p>
-      <div id="hindi-cards" class="cards-grid"></div>
-      <div class="long-text">
-        <p>These Hindi sites may include dubbed episodes, fan-subs, or local-curated collections. Use the search box to filter by name, tag or note.</p>
-        <p>Cards contain "Open" and "Copy URL" for quick access and sharing.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="goat" class="goat-section">
-    <div class="goat-inner">
-      <h2>Telegram — The GOAT</h2>
-      <p class="goat-text">Telegram is the best platform for anime, manga, fandubs, and compact 40MB episodes.</p>
-      <p class="goat-text">Includes rare, fanmade dubs, uploads, and archive-level content.</p>
-      <a class="btn-cta" href="https://web.telegram.org" target="_blank" rel="noopener">Open Telegram Web</a>
-    </div>
-  </section>
-
-  <section id="contact" class="contact-section">
-    <div class="contact-inner">
-      <h2>Contact — ancientgemz7</h2>
-      <p>Telegram: <a href="https://t.me/ancientgemz7" target="_blank" rel="noopener">t.me/ancientgemz7</a></p>
-      <p>Email: <a href="mailto:ancientgemz7@gmail.com">ancientgemz7@gmail.com</a></p>
-      <p class="contact-line">Got a new idea? Just email or DM on Telegram.</p>
-      <p class="contact-long">This contact block is intentionally long and stylish — use it for collabs, archive requests, or to share rare finds. Reach out on Telegram or email for fast replies.</p>
-    </div>
-  </section>
-</main>
-
-<footer class="site-footer">made by ancientgemz7</footer>
-
-<!-- Toast -->
-<div id="toast" class="toast">URL copied!</div>
-
-<script>
-// Data for sites
-const SITES = [
-  // Hindi sites
-  {name:'Animesalt',url:'https://animesalt.cc/',lang:'hindi',tags:'dub,hindi,stream,archive',note:'Hindi-dubbed collections; simple UI.'},
-  {name:'Animeworld',url:'https://watchanimeworld.in/',lang:'hindi',tags:'stream,dub,hindi',note:'Hindi-friendly player and dubbed episodes.'},
-  {name:'RareToons / RareAnimes',url:'https://www.rareanimes.co/',lang:'hindi',tags:'Best for dowloading ',note:'Archive-like site with rare and fanmade content.'},
-  {name:'AnimePlanet',url:'https://www.anime-planet.com/',lang:'hindi',tags:'database,recommendations,community',note:'Community-driven lists and recommendations (global site often used by Hindi users).'},
-  // English sites
-  {name:'Anikai',url:'https://anikai.to/',lang:'english',tags:'anime,simulcast,english,funimation',note:'Fast streaming, up-to-date shows.'},
-  {name:'9Anime',url:'https://9anime.org.lv/',lang:'english',tags:'stream,sub,english',note:'Popular aggregator with multiple streams.'},
-  {name:'HiAnime',url:'https://hianime.to/',lang:'english',tags:'stream,english,hd',note:'HD streams and user-friendly player.'}
-];
-
-// Utility: create card element
-function makeCard(s){
-  const card=document.createElement('article');
-  card.className='site-card';
-  card.setAttribute('data-lang',s.lang);
-  card.setAttribute('data-search',`${s.name} ${s.tags} ${s.note}`.toLowerCase());
-  card.innerHTML=`
-    <div class="card-left">
-      <img class="favicon" src="https://www.google.com/s2/favicons?domain=${new URL(s.url).hostname}" alt="${s.name} favicon" onerror="this.onerror=null;this.src='img.png'">
-    </div>
-    <div class="card-body">
-      <h3 class="site-name">${s.name}</h3>
-      <p class="site-note">${s.note}</p>
-      <p class="site-tags">Tags: <span>${s.tags}</span></p>
-    </div>
-    <div class="card-actions">
-      <a class="btn open" href="${s.url}" target="_blank" rel="noopener">Open</a>
-      <button class="btn copy" data-url="${s.url}">Copy URL</button>
-    </div>
-  `;
-  return card;
-}
-
-// Render initial lists
-const englishCards=document.getElementById('english-cards');
-const hindiCards=document.getElementById('hindi-cards');
-SITES.forEach(s=>{
-  const c=makeCard(s);
-  if(s.lang==='english') englishCards.appendChild(c);
-  if(s.lang==='hindi') hindiCards.appendChild(c);
-});
-
-// language logic
-const chkEng=document.getElementById('chkEnglish'),chkHin=document.getElementById('chkHindi');
-function updateLanguageView(){
-  // Priority: if Hindi checked => show only Hindi section
-  if(chkHin.checked){
-    document.getElementById('hindi-section').style.display='block';
-    document.getElementById('english-section').style.display='none';
-    // ensure hindi cards visible
-    Array.from(hindiCards.children).forEach(c=>c.style.display='flex');
-  } else if(chkEng.checked){
-    document.getElementById('english-section').style.display='block';
-    document.getElementById('hindi-section').style.display='none';
-    // english section should contain english + copies of hindi
-    // Clear any previous clones
-    // remove existing cloned-hindi items
-    Array.from(englishCards.querySelectorAll('.cloned-hindi')).forEach(n=>n.remove());
-    // append clones of hindi
-    Array.from(hindiCards.children).forEach(hc=>{
-      const clone=hc.cloneNode(true);
-      clone.classList.add('cloned-hindi');
-      englishCards.appendChild(clone);
-    });
-  } else {
-    // neither checked: default to show english + Hindi below
-    document.getElementById('english-section').style.display='block';
-    document.getElementById('hindi-section').style.display='block';
-    Array.from(englishCards.querySelectorAll('.cloned-hindi')).forEach(n=>n.remove());
-  }
-  applySearch(); // re-filter based on search
-}
-chkEng.addEventListener('change',updateLanguageView);
-chkHin.addEventListener('change',updateLanguageView);
-
-// Search & filtering
-const searchInput=document.getElementById('siteSearch'),clearBtn=document.getElementById('clearSearch');
-function applySearch(){
-  const q=searchInput.value.trim().toLowerCase();
-  // filter visible sections' cards
-  function filterContainer(container){
-    Array.from(container.querySelectorAll('.site-card')).forEach(card=>{
-      const text=card.getAttribute('data-search')||'';
-      card.style.display = (q === '' || text.includes(q)) ? 'flex' : 'none';
-    });
-  }
-  // We only filter cards in containers that are visible
-  if(document.getElementById('english-section').style.display!=='none') filterContainer(englishCards);
-  if(document.getElementById('hindi-section').style.display!=='none') filterContainer(hindiCards);
-}
-searchInput.addEventListener('input',applySearch);
-clearBtn.addEventListener('click',()=>{searchInput.value='';applySearch();});
-
-// Copy URL / toast
-const toast=document.getElementById('toast');
-document.body.addEventListener('click',e=>{
-  if(e.target.matches('.copy')){
-    const url=e.target.getAttribute('data-url');
-    navigator.clipboard?.writeText(url).then(()=>showToast('URL copied!')).catch(()=>showToast('Copy failed'));
-  }
-});
-let toastTimer;
-function showToast(msg){
-  toast.textContent=msg;
-  toast.classList.add('visible');
-  clearTimeout(toastTimer);
-  toastTimer=setTimeout(()=>toast.classList.remove('visible'),2000);
-}
-
-// Small smooth entrance animations for cards
-document.addEventListener('DOMContentLoaded',()=>{
-  // initial view update
-  updateLanguageView();
-  // add hover animation listeners for accessible focus as well
-  document.querySelectorAll('.site-card').forEach((c,i)=>setTimeout(()=>c.classList.add('in'),i*80));
-});
-</script>
 </body>
 </html>
-
